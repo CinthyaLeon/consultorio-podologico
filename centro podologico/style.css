@@ -1,0 +1,547 @@
+body {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Fuente más moderna y legible */
+    margin: 0;
+    padding: 0;
+    background-color: #bcc8e2; /* Gris claro sutil */
+    color: #040a63; /* Gris oscuro más suave */
+    line-height: 1.6; /* Mejor legibilidad del texto */
+    -webkit-font-smoothing: antialiased; /* Suavizado de fuentes para mejor apariencia */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    width: 90%; /* Un poco más de espacio en los lados */
+    max-width: 1800px; /* Ancho máximo para evitar que el contenido se estire demasiado en pantallas grandes */
+    margin: 0 auto; /* Centrar el contenedor */
+    overflow:hidden;
+}
+
+/* Estilos de encabezado */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #1b2b83;
+    color: #e4e7e9;
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(10, 25, 75, 0.05);
+    z-index: 100;
+    transition: padding 0.3s ease-in-out, font-size 0.3s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header.sticky {
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.main-nav {
+    width: 100%; /* Ocupa todo el ancho en pantallas pequeñas */
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.main-nav ul li {
+    margin: 0 15px;
+}
+
+.main-nav ul li a {
+    color: #193d61;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    color: #12253a;
+}
+
+nav ul li a.active {
+    font-weight: bold;
+    color: #062e58;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 101;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #052341;
+    margin: 5px 0;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Estilos para pantallas más pequeñas */
+@media (max-width: 768px) {
+    header {
+        padding: 0px; /* Header más pequeño en pantallas chicas */
+        cursor: pointer; /* Indica que el header es interactivo */
+    }
+
+    header h1 {
+        font-size: 1.5em; /* Título más pequeño */
+    }
+
+    .main-nav {
+        display: flex; /* Oculta el menú por defecto */
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        background-color: #0a3075;
+        position: auto;
+        top: 100%;
+        left: 0;
+        z-index: 99;
+        box-shadow: 0 4px 8px rgba(10, 25, 75, 0.1);
+    }
+
+    .main-nav.open {
+        display: flex; /* Muestra el menú cuando la clase 'open' está activa */
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-nav ul li {
+        margin: 5px 0; /* Espacio más pequeño entre los items del menú */
+    }
+
+    .main-nav ul li a {
+        display: block;
+        padding: 8px 15px; /* Padding más pequeño en los enlaces */
+        font-size: 1em;
+        color: #052341;
+        text-decoration: none;
+    }
+
+    .main-nav ul li a:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-toggle {
+        display: none; /* Oculta el botón de hamburguesa */
+    }
+}
+
+/* Ajuste del padding superior de las secciones */
+section {
+    padding-top: calc(80px + 10px); /* Ajuste para el header más pequeño */
+}
+
+@media (max-width: 768px) {
+    section {
+        padding-top: calc(50px + 10px); /* Ajuste aún más para pantallas pequeñas */
+    }
+}
+/* Ajuste del padding superior de las secciones */
+section {
+    padding-top: calc(50px + 10px); /* Considera la altura reducida del header */
+}
+
+@media (max-width: 768px) {
+    section {
+        padding-top: calc(40px + 10px); /* Ajusta aún más para pantallas pequeñas */
+    }
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; /* Eliminar márgenes innecesarios */
+    display: flex; /* Para alinear los elementos del menú */
+    justify-content: center; /* Centrar el menú */
+}
+
+nav ul li {
+    margin: 0 20px; /* Más espacio entre los elementos del menú */
+}
+
+nav ul li a {
+    color: #ebedf0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
+    font-size: 1.1em; /* Tamaño de fuente ligeramente mayor */
+    transition: color 0.3s ease; /* Transición suave para el hover */
+}
+
+nav ul li a:hover {
+    color: #12253a; /* Color azul más moderno al pasar el ratón */
+}
+
+nav ul li a.active {
+    font-weight: bold; /* Resaltar el enlace activo */
+    color: #6381b8; /* Cambiar el color del enlace activo */
+}
+
+/* Estilos de secciones */
+section {
+    padding: 80px 0; /* Más espacio vertical */
+    text-align: center;
+    background: #fdfdfd;
+    margin: 30px 0; /* Más espacio entre secciones */
+    border-radius: 8px; /* Bordes redondeados suaves */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03); /* Sombra suave para levantar las secciones */
+}
+
+h2 {
+    color: #0d277e; /* Título más oscuro */
+    font-size: 2.2em; /* Tamaño de fuente ligeramente mayor */
+    margin-bottom: 25px;
+    font-weight: 500; /* Peso de fuente seminegrita */
+}
+
+/* Estilos del carrusel */
+#carrusel {
+    display: flex;
+    overflow-x: auto; /* Permite desplazamiento horizontal */
+    width: 100%; /* El carrusel ocupa todo el ancho del contenedor padre (la sección #inicio) */
+    max-width: none; /* Elimina cualquier ancho máximo que pudiera limitar el carrusel */
+    margin: 0; /* Elimina los márgenes laterales para que llegue a los bordes */
+    border-radius: 0; /* Elimina los bordes redondeados si no los deseas en los extremos */
+    box-shadow: none; /* Elimina la sombra si no la deseas en los extremos */
+}
+
+#carrusel img {
+    flex: 0 0 auto; /* No se encojan ni se estiren, ocupan su ancho */
+    width: 100%; /* Cada imagen ocupa el 100% del ancho del carrusel visible */
+    max-width: none; /* Asegura que la imagen pueda ocupar todo el ancho */
+    height: auto;
+    max-height: 400px; /* Mantén o ajusta la altura máxima */
+    border-radius: 0; /* Elimina los bordes redondeados de las imágenes si no los deseas en los extremos */
+}
+/* Estilos de servicios */
+#servicios {
+    padding: 60px 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #f8f9fa;
+    text-align: center; /* Centra el título de la sección */
+}
+
+.section-title {
+    color: #152366;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2.2em;
+    margin-bottom: 40px; /* Mayor espacio debajo del título */
+    font-weight: 500;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajusta el minmax según el tamaño deseado de los elementos */
+    gap: 30px; /* Espacio entre las imágenes y descripciones */
+    max-width: 1000px; /* Limita el ancho del grid si es necesario */
+    margin: 0 auto; /* Centra el grid en la página */
+    padding: 20px; /* Añade un poco de padding alrededor del grid */
+}
+
+.service-item {
+    text-align: center; /* Centra la imagen, el título y la descripción dentro de cada item */
+    background-color: #fff; /* Fondo blanco para cada item */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+}
+
+.service-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 15px; /* Espacio debajo de la imagen */
+}
+
+.service-item h3 {
+    color: #0f2052;
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.service-item p {
+    color: #0e1769;
+    line-height: 1.6;
+    font-size: 0.95em;
+}
+
+/* Estilos responsivos para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajusta para pantallas más pequeñas */
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .service-item {
+        padding: 15px;
+    }
+
+    .service-item h3 {
+        font-size: 1.2em;
+        margin-bottom: 8px;
+    }
+
+    .service-item p {
+        font-size: 0.9em;
+    }
+}
+
+
+/* Acerca de nosotros */
+#acerca {
+    background-color: #e9ecef; /* Fondo grisáceo suave para contraste */
+}
+
+#acerca .container {
+    padding: 80px 0;
+}
+
+#acerca h2 {
+    color: #0b277b;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    font-weight: 600; /* Peso de fuente más fuerte */
+}
+
+#acerca p {
+    font-size: 1.15em;
+    line-height: 1.8;
+    color: #152061;
+    margin-bottom: 30px;
+}
+
+#acerca .content-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#acerca .text-content {
+    flex: 1;
+    padding-right: 40px;
+    text-align: left;
+}
+
+#acerca img {
+    max-width: 45%;
+    height: auto;
+    border-radius: 12px; /* Bordes más redondeados */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Estilos para pantallas medianas (tablets) */
+@media (max-width: 992px) { /* Ajustar el breakpoint para tablets más grandes */
+    #acerca .container {
+        padding: 60px 0;
+    }
+
+    #acerca .content-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #acerca .text-content {
+        padding-right: 0;
+        margin-bottom: 30px;
+    }
+
+    #acerca img {
+        max-width: 80%;
+    }
+
+    #acerca h2 {
+        font-size: 2.2em;
+        margin-bottom: 20px;
+    }
+
+    #acerca p {
+        font-size: 1.1em;
+        margin-bottom: 25px;
+    }
+}
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media (max-width: 576px) { /* Ajustar el breakpoint para móviles más grandes */
+    #acerca .container {
+        padding: 40px 0;
+    }
+
+    #acerca img {
+        max-width: 95%;
+    }
+
+    #acerca h2 {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+
+    #acerca p {
+        font-size: 1em;
+        margin-bottom: 20px;
+    }
+}
+
+/* Estilos del formulario de contacto */
+form {
+    max-width: 500px; /* Un poco más ancho */
+    margin: 40px auto;
+    padding: 30px; /* Añadir padding al formulario */
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+form label {
+    margin-bottom: 5px;
+    color: #495057;
+    font-weight: bold;
+}
+
+form input,
+form textarea {
+    margin-bottom: 15px;
+    padding: 12px; /* Más padding */
+    border: 1px solid #ced4da; /* Borde más suave */
+    border-radius: 6px; /* Bordes más redondeados */
+    font-size: 1em;
+}
+
+form input:focus,
+form textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Efecto de foco */
+}
+
+button {
+    background: #007bff; /* Azul más moderno */
+    color: white;
+    padding: 12px 20px; /* Más padding para el botón */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background: #0056b3; /* Tono más oscuro al pasar el ratón */
+}
+
+/* Estilos del mapa */
+iframe {
+    width: 100%;
+    height: 400px; /* Altura un poco mayor */
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px; /* Añadir margen inferior */
+}
+
+/* Estilos del botón de WhatsApp */
+#whatsapp {
+    position: fixed;
+    bottom: 30px; /* Un poco más abajo */
+    right: 30px; /* Un poco más a la derecha */
+    z-index: 1000; /* Asegura que esté por encima de todo */
+}
+
+#whatsapp img {
+    width: 60px; /* Tamaño ligeramente mayor */
+    height: 60px;
+    border-radius: 50%; /* Hacerlo circular */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+    transition: transform 0.2s ease-in-out;
+}
+
+#whatsapp img:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive (ajustes adicionales) */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    #carrusel img {
+        max-height: 250px; /* Ajustar altura en pantallas más pequeñas */
+    }
+
+    form {
+        width: 95%;
+        margin: 30px auto;
+        padding: 20px;
+    }
+
+    iframe {
+        height: 300px; /* Ajustar altura del mapa en pantallas más pequeñas */
+    }
+
+    #whatsapp img {
+        width: 50px;
+        height: 50px;
+    }
+
+    #servicios .container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajustar para pantallas más pequeñas */
+    }
+
+    .servicio {
+        text-align: center; /* Centrar el contenido del servicio en pantallas pequeñas */
+    }
+
+    .servicio h3 {
+        text-align: center; /* Centrar el título en pantallas pequeñas */
+    }
+
+    .servicio p {
+        text-align: center; /* Centrar la descripción en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 28px; /* Ajustar aún más el tamaño del encabezado */
+    }
+
+    nav ul li a {
+        font-size: 1em;
+    }
+
+    button {
+        font-size: 1em;
+        padding: 10px 15px;
+    }
+}
